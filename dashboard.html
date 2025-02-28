@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Lavalamp Navigation Menu -->
+    <div class="nav-container">
+        <!-- Dark Mode Toggle in the top-left corner -->
+        <button id="darkModeToggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+        <!-- Lavalamp Navigation Menu -->
+        <nav>
+            <a href="#" onclick="showSection('homeSection')">Home</a>
+            <a href="#" onclick="showSection('searchSection')">Search Messages</a>
+            <a href="#" onclick="showSection('dateFilterSection')">Filter by Date</a>
+            <a href="#" onclick="showSection('senderFilterSection')">Filter by Sender</a>
+            <a href="#" onclick="showSection('sortSection')">Sort Messages</a>
+            <a href="#" onclick="showSection('themeSection')">Theme Settings</a>
+            <div class="animation start-sender-filter"></div>
+        </nav>
+    </div>
+
+    <div class="container">
+
+        <!-- Search Section -->
+        <div id="searchSection" class="operation-section hidden">
+            <input type="text" id="searchInput" placeholder="Search messages...">
+            <button onclick="applyFilters()">Search</button>
+        </div>
+
+        <!-- Date Filter Section -->
+        <div id="dateFilterSection" class="operation-section hidden">
+            <div class="filter-group">
+                <input type="date" id="startDate">
+                <input type="date" id="endDate">
+            </div>
+            <button onclick="applyFilters()">Apply Date Filter</button>
+        </div>
+
+        <!-- Sender Filter Section -->
+        <div id="senderFilterSection" class="operation-section hidden">
+            <select id="senderFilter">
+                <option value="all">All Senders</option>
+                <option value="Maha">Maha</option>
+                <option value="Abhishek">Abhishek</option>
+            </select>
+            <button onclick="applyFilters()">Apply Sender Filter</button>
+        </div>
+
+        <!-- Sort Messages Section -->
+        <div id="sortSection" class="operation-section hidden">
+            <select id="sortOrder">
+                <option value="oldest">Oldest First</option>
+                <option value="newest">Newest First</option>
+            </select>
+            <button onclick="applyFilters()">Apply Sorting</button>
+        </div>
+
+        <!-- Theme Settings Section -->
+        <div id="themeSection" class="operation-section hidden">
+            <select id="themeSelect" onchange="handleThemeChange()">
+                <option value="default">Default</option>
+                <option value="dark-colors">Dark Colors</option>
+                <option value="background-image">Background Image</option>
+            </select>
+
+            <!-- Dark Color Picker -->
+            <div id="darkColorPicker" class="hidden">
+                <button class="color-circle" style="background-color: #222;" onclick="applyDarkColor('#222')"></button>
+                <button class="color-circle" style="background-color: #333;" onclick="applyDarkColor('#333')"></button>
+                <button class="color-circle" style="background-color: #444;" onclick="applyDarkColor('#444')"></button>
+                <button class="color-circle" style="background-color: #555;" onclick="applyDarkColor('#555')"></button>
+            </div>
+
+            <!-- Video Picker -->
+            <div id="videoPicker" class="hidden">
+                <select id="videoSelect" onchange="applyVideoBackground()">
+                    <option value="">Select Background</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="chat-container" id="chat-box">
+            <p>Hey👋 !!! Just a few Seconds <br> <br>Loading the  chat...</p>
+        </div>
+
+    </div>
+
+    <!-- Video Background Element -->
+    <video id="backgroundVideo" class="hidden" autoplay loop muted></video>
+
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
