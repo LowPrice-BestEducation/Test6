@@ -40,8 +40,8 @@ let allMessages = [];
 
         // Define alternative names
         const nameMapping = {
-            "Maha": "User1",
-            "A B H I S H E K G O W D A": "User2"
+            "Maha": "Maha",
+            "A B H I S H E K G O W D A": "Abhi"
         };
 
         function displayMessages(messages) {
